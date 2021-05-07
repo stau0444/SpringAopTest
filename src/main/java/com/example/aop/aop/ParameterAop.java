@@ -12,10 +12,10 @@ import java.lang.reflect.Method;
 public class ParameterAop {
 
     //어떤 메서드에 적용할지를 정의하는 메서드
-    @Pointcut("execution(* com.example.aop.controller..*.*(..))")
+    //@Pointcut("execution(* com.example.aop.controller..*.*(..))")
     private void pointCut(){}
 
-    @Before("pointCut()")
+    //@Before("pointCut()")
     public void before(JoinPoint joinPoint){
 
         //어떤 메서드가 사용됬는지 정보를 methodSignature로  확인할 수 있다 .
@@ -34,7 +34,7 @@ public class ParameterAop {
     }
 
     //value 는 어떤 메서드에서 수행할지 지정하며 , returning은 확인이 필요한 객체를 지정한다.
-    @AfterReturning(value = "pointCut()",returning = "obj")
+    //@AfterReturning(value = "pointCut()",returning = "obj")
     public void afterReturn(JoinPoint joinPoint , Object obj){
         System.out.println("return Obj");
         System.out.println(obj);

@@ -1,5 +1,6 @@
 package com.example.aop.controller;
 
+import com.example.aop.annotation.Timer;
 import com.example.aop.dto.User;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,5 +17,17 @@ public class RestAPIController {
     public User post(@RequestBody User user){
         System.out.println("post method:" + user);
         return user;
+    }
+
+    @Timer
+    @DeleteMapping("/delete")
+    public void delete(){
+
+        //db logic
+        try {
+            Thread.sleep(1000*2);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
